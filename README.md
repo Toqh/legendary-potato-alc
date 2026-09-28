@@ -1,6 +1,6 @@
 # African Leishmaniases Consortium
 
-Static ALC website, published with GitHub Pages.
+Static ALC website, configured for Vercel hosting.
 
 ## Editing
 
@@ -10,5 +10,7 @@ updated file to `index.html` before publishing.
 
 ## Publishing
 
-GitHub Pages serves the root directory of the `main` branch. Push changes to
-`main` to update the site. No build tools are required.
+Vercel serves `index.html` and the `assets` directory directly. No build tools
+are required. Link this folder to the `alc-africa` Vercel project, then run
+`npx vercel --prod` to publish. When the GitHub repository is connected in
+Vercel, pushes to `main` publish automatically.
