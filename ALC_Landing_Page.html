@@ -1,0 +1,1162 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The African Leishmaniases Consortium advances locally led research, leadership and policy for the control and elimination of leishmaniases in Africa.">
+  <meta name="theme-color" content="#0b4d3b">
+  <title>African Leishmaniases Consortium | ALC</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b4d3b'/%3E%3Cpath d='M17 46 29 17h7l12 29h-8l-2-6H27l-2 6Zm13-13h6l-3-9Z' fill='%23fff'/%3E%3Ccircle cx='49' cy='15' r='6' fill='%23e9783d'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --ink: #14312a;
+      --ink-soft: #53665f;
+      --green-950: #06392c;
+      --green-900: #0b4d3b;
+      --green-800: #12624d;
+      --green-700: #1b7a60;
+      --green-100: #dcebe4;
+      --green-50: #eef6f2;
+      --orange: #e9783d;
+      --orange-dark: #c95523;
+      --cream: #f7f3ea;
+      --sand: #e7dfd0;
+      --white: #fff;
+      --line: rgba(11, 77, 59, .15);
+      --shadow-sm: 0 10px 30px rgba(6, 57, 44, .08);
+      --shadow-lg: 0 24px 64px rgba(6, 57, 44, .17);
+      --radius-sm: 12px;
+      --radius-md: 22px;
+      --radius-lg: 34px;
+      --page: min(1180px, calc(100% - 40px));
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--cream);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 1rem;
+      line-height: 1.65;
+      text-rendering: optimizeLegibility;
+    }
+
+    body.menu-open { overflow: hidden; }
+
+    img { display: block; max-width: 100%; }
+
+    a { color: inherit; }
+
+    button, a { -webkit-tap-highlight-color: transparent; }
+
+    :focus-visible {
+      outline: 3px solid #f3a476;
+      outline-offset: 4px;
+    }
+
+    .skip-link {
+      position: fixed;
+      z-index: 999;
+      top: 12px;
+      left: 12px;
+      padding: 10px 14px;
+      color: var(--white);
+      background: var(--green-950);
+      border-radius: 8px;
+      transform: translateY(-150%);
+      transition: transform .2s ease;
+    }
+
+    .skip-link:focus { transform: translateY(0); }
+
+    .container { width: var(--page); margin-inline: auto; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 14px;
+      color: var(--green-700);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+      line-height: 1.3;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      width: 28px;
+      height: 2px;
+      content: "";
+      background: var(--orange);
+    }
+
+    .eyebrow.light { color: #cfe4dc; }
+
+    .display {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.65rem, 6.2vw, 5.85rem);
+      font-weight: 500;
+      letter-spacing: -.055em;
+      line-height: .95;
+    }
+
+    .section-title {
+      max-width: 780px;
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.15rem, 4.1vw, 4rem);
+      font-weight: 500;
+      letter-spacing: -.04em;
+      line-height: 1.03;
+    }
+
+    .section-intro {
+      max-width: 680px;
+      margin: 22px 0 0;
+      color: var(--ink-soft);
+      font-size: clamp(1.02rem, 1.5vw, 1.15rem);
+    }
+
+    .btn {
+      display: inline-flex;
+      min-height: 50px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 20px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-size: .92rem;
+      font-weight: 750;
+      line-height: 1;
+      text-decoration: none;
+      transition: transform .2s ease, background-color .2s ease, border-color .2s ease, color .2s ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { color: var(--white); background: var(--orange); }
+    .btn-primary:hover { background: var(--orange-dark); }
+    .btn-secondary { color: var(--green-950); border-color: var(--line); background: rgba(255, 255, 255, .55); }
+    .btn-secondary:hover { border-color: var(--green-700); background: var(--white); }
+    .btn svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2; }
+
+    .site-header {
+      position: sticky;
+      z-index: 100;
+      top: 0;
+      border-bottom: 1px solid var(--line);
+      background: rgba(247, 243, 234, .93);
+      backdrop-filter: blur(16px);
+    }
+
+    .header-inner {
+      display: flex;
+      min-height: 78px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      flex: 0 0 auto;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .brand img { width: 172px; height: 48px; object-fit: contain; object-position: left center; }
+
+    .nav-wrap { display: flex; align-items: center; gap: 28px; }
+
+    .site-nav { display: flex; align-items: center; gap: 26px; }
+
+    .site-nav a {
+      position: relative;
+      color: #28473f;
+      font-size: .88rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .site-nav a:not(.btn)::after {
+      position: absolute;
+      right: 0;
+      bottom: -7px;
+      left: 0;
+      height: 2px;
+      content: "";
+      background: var(--orange);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .2s ease;
+    }
+
+    .site-nav a:not(.btn):hover::after { transform: scaleX(1); }
+
+    .menu-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      color: var(--green-950);
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .menu-toggle svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-width: 2; }
+
+    .hero {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      padding: clamp(58px, 8vw, 104px) 0 0;
+    }
+
+    .hero::before {
+      position: absolute;
+      z-index: -1;
+      top: -160px;
+      right: -220px;
+      width: 680px;
+      height: 680px;
+      border: 100px solid rgba(27, 122, 96, .07);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .hero-grid {
+      display: grid;
+      align-items: center;
+      grid-template-columns: minmax(0, 1.02fr) minmax(360px, .98fr);
+      gap: clamp(44px, 7vw, 92px);
+    }
+
+    .hero-copy { padding-bottom: 52px; }
+
+    .hero-copy .display span { color: var(--green-700); }
+
+    .hero-lead {
+      max-width: 660px;
+      margin: 26px 0 0;
+      color: var(--ink-soft);
+      font-size: clamp(1.08rem, 1.65vw, 1.28rem);
+    }
+
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+
+    .hero-note {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 28px;
+      color: #486159;
+      font-size: .88rem;
+      font-weight: 650;
+    }
+
+    .hero-note .dot {
+      width: 9px;
+      height: 9px;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      background: var(--orange);
+      box-shadow: 0 0 0 5px rgba(233, 120, 61, .14);
+    }
+
+    .hero-visual { position: relative; align-self: center; min-width: 0; margin-bottom: 52px; }
+
+    .hero-image {
+      width: 100%;
+      height: auto;
+      border-radius: var(--radius-lg) var(--radius-lg) 0 var(--radius-lg);
+      object-fit: contain;
+      object-position: center;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .hero-visual::after {
+      position: absolute;
+      z-index: -1;
+      right: -22px;
+      bottom: 18px;
+      width: 76%;
+      height: 52%;
+      border-radius: var(--radius-lg);
+      content: "";
+      background: var(--green-900);
+    }
+
+    .photo-caption {
+      position: relative;
+      margin-top: 14px;
+      padding: 15px 18px;
+      border-left: 4px solid var(--orange);
+      color: var(--white);
+      background: var(--green-950);
+      box-shadow: var(--shadow-sm);
+      font-size: .82rem;
+      font-weight: 700;
+      line-height: 1.45;
+    }
+
+    .metric-strip {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      margin-top: 22px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, .45);
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .metric { padding: 28px clamp(16px, 3vw, 34px); }
+    .metric + .metric { border-left: 1px solid var(--line); }
+
+    .metric strong {
+      display: block;
+      color: var(--green-900);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2rem, 3.2vw, 3.15rem);
+      font-weight: 500;
+      letter-spacing: -.04em;
+      line-height: 1;
+    }
+
+    .metric span { display: block; margin-top: 8px; color: var(--ink-soft); font-size: .83rem; font-weight: 700; line-height: 1.35; }
+
+    .section { padding: clamp(80px, 11vw, 144px) 0; }
+
+    .about-grid {
+      display: grid;
+      align-items: start;
+      grid-template-columns: minmax(0, 1.12fr) minmax(300px, .68fr);
+      gap: clamp(50px, 9vw, 130px);
+    }
+
+    .about-copy p { margin: 24px 0 0; color: var(--ink-soft); font-size: 1.06rem; }
+
+    .about-card {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, .55);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .about-card h3 {
+      margin: 0;
+      padding: 24px 26px;
+      color: var(--white);
+      background: var(--green-900);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.5rem;
+      font-weight: 500;
+    }
+
+    .fact-list { margin: 0; padding: 4px 26px 12px; }
+
+    .fact-row {
+      display: grid;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--line);
+      grid-template-columns: 110px 1fr;
+      gap: 16px;
+    }
+
+    .fact-row:last-child { border: 0; }
+    .fact-row dt { color: var(--green-700); font-size: .76rem; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
+    .fact-row dd { margin: 0; color: var(--ink); font-size: .92rem; font-weight: 650; line-height: 1.45; }
+
+    .challenge {
+      position: relative;
+      overflow: hidden;
+      color: var(--white);
+      background: var(--green-950);
+    }
+
+    .challenge::before {
+      position: absolute;
+      top: -150px;
+      left: -150px;
+      width: 420px;
+      height: 420px;
+      border: 80px solid rgba(255, 255, 255, .04);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .challenge-grid {
+      position: relative;
+      display: grid;
+      align-items: end;
+      grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+      gap: clamp(54px, 9vw, 128px);
+    }
+
+    .challenge .section-title { color: var(--white); }
+    .challenge .section-intro { color: #c7dbd4; }
+
+    .burden-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+
+    .burden-card {
+      min-height: 220px;
+      padding: 30px;
+      border: 1px solid rgba(255, 255, 255, .14);
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, .06);
+    }
+
+    .burden-card:first-child { transform: translateY(-28px); }
+
+    .burden-card strong {
+      display: block;
+      color: #f7b38d;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3rem, 5vw, 4.9rem);
+      font-weight: 500;
+      letter-spacing: -.05em;
+      line-height: 1;
+    }
+
+    .burden-card p { margin: 18px 0 0; color: #d9e7e2; line-height: 1.5; }
+
+    .response-band {
+      position: relative;
+      display: grid;
+      margin-top: 60px;
+      padding-top: 34px;
+      border-top: 1px solid rgba(255, 255, 255, .14);
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .response-item { color: #cfe0da; font-size: .9rem; }
+    .response-item b { display: block; margin-bottom: 7px; color: var(--white); font-size: 1rem; }
+
+    .strategy-header { display: flex; align-items: end; justify-content: space-between; gap: 40px; }
+
+    .strategy-header .section-intro { max-width: 500px; margin: 0; }
+
+    .pillar-grid { display: grid; margin-top: 58px; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+
+    .pillar-card {
+      position: relative;
+      min-height: 280px;
+      overflow: hidden;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, .58);
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    }
+
+    .pillar-card:hover { border-color: rgba(11, 77, 59, .34); box-shadow: var(--shadow-sm); transform: translateY(-5px); }
+
+    .pillar-card::after {
+      position: absolute;
+      right: -44px;
+      bottom: -44px;
+      width: 120px;
+      height: 120px;
+      border: 22px solid var(--green-100);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .pillar-no { color: var(--orange); font-size: .78rem; font-weight: 850; letter-spacing: .12em; }
+    .pillar-card h3 { max-width: 210px; margin: 48px 0 0; font-family: Georgia, "Times New Roman", serif; font-size: 1.55rem; font-weight: 500; line-height: 1.12; }
+
+    .objectives {
+      background: var(--white);
+    }
+
+    .objective-layout {
+      display: grid;
+      align-items: start;
+      grid-template-columns: minmax(310px, .75fr) minmax(0, 1.25fr);
+      gap: clamp(54px, 10vw, 136px);
+    }
+
+    .objective-heading { position: sticky; top: 118px; }
+
+    .objective-list { margin: 0; padding: 0; list-style: none; counter-reset: objective; }
+
+    .objective-item {
+      display: grid;
+      padding: 34px 0;
+      border-top: 1px solid var(--line);
+      counter-increment: objective;
+      grid-template-columns: 64px 1fr;
+      gap: 24px;
+    }
+
+    .objective-item:last-child { border-bottom: 1px solid var(--line); }
+
+    .objective-item::before {
+      display: flex;
+      width: 50px;
+      height: 50px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--green-100);
+      border-radius: 50%;
+      color: var(--green-700);
+      content: counter(objective, decimal-leading-zero);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.05rem;
+    }
+
+    .objective-item h3 { margin: 0; color: var(--green-950); font-size: 1.15rem; line-height: 1.4; }
+    .objective-item p { margin: 8px 0 0; color: var(--ink-soft); }
+
+    .network-grid {
+      display: grid;
+      align-items: center;
+      grid-template-columns: minmax(0, 1.04fr) minmax(360px, .96fr);
+      gap: clamp(48px, 8vw, 104px);
+    }
+
+    .network-image-wrap {
+      position: relative;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, .56);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .network-image-wrap { margin: 0; min-width: 0; }
+    .network-image-wrap img { width: 100%; height: auto; border-radius: calc(var(--radius-lg) - 12px); object-fit: contain; }
+
+    .network-image-wrap figcaption {
+      position: relative;
+      margin-top: 14px;
+      padding: 13px 16px;
+      border-radius: 12px 0 25px 0;
+      color: var(--white);
+      background: var(--green-950);
+      font-size: .78rem;
+      font-weight: 700;
+    }
+
+    .programme-list { display: grid; margin-top: 36px; gap: 16px; }
+
+    .programme-item {
+      display: grid;
+      align-items: start;
+      padding: 22px 0;
+      border-top: 1px solid var(--line);
+      grid-template-columns: 68px 1fr;
+      gap: 18px;
+    }
+
+    .programme-item:last-child { border-bottom: 1px solid var(--line); }
+
+    .programme-item strong {
+      color: var(--orange);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2rem;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    .programme-item h3 { margin: 0; font-size: 1.05rem; }
+    .programme-item p { margin: 6px 0 0; color: var(--ink-soft); font-size: .94rem; }
+
+    .leaders { background: var(--green-50); }
+
+    .leaders-top {
+      display: grid;
+      align-items: end;
+      grid-template-columns: 1fr .75fr;
+      gap: 54px;
+    }
+
+    .leaders-top .section-intro { margin: 0; }
+
+    .leadership-grid { display: grid; margin-top: 54px; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+    .person-card {
+      min-height: 202px;
+      padding: 25px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, .72);
+    }
+
+    .person-card.featured { color: var(--white); border-color: transparent; background: var(--green-900); }
+
+    .person-role { color: var(--orange-dark); font-size: .72rem; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
+    .person-card.featured .person-role { color: #ffbc96; }
+    .person-card h3 { margin: 30px 0 0; font-family: Georgia, "Times New Roman", serif; font-size: 1.35rem; font-weight: 500; line-height: 1.18; }
+    .person-card p { margin: 10px 0 0; color: var(--ink-soft); font-size: .84rem; line-height: 1.5; }
+    .person-card.featured p { color: #d7e7e1; }
+
+    .supporters { padding: 70px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--white); }
+
+    .supporters-grid { display: grid; align-items: center; grid-template-columns: .62fr 1.38fr; gap: 60px; }
+
+    .supporters h2 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(1.9rem, 3vw, 2.8rem); font-weight: 500; line-height: 1.08; }
+
+    .supporter-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+
+    .supporter {
+      display: flex;
+      min-width: 0;
+      min-height: 230px;
+      flex-direction: column;
+      gap: 18px;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      color: var(--green-950);
+      background: var(--white);
+      font-size: .91rem;
+      font-weight: 800;
+      line-height: 1.3;
+      text-align: center;
+      text-decoration: none;
+      transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+    }
+
+    .supporter:hover { border-color: var(--green-700); box-shadow: var(--shadow-sm); transform: translateY(-3px); }
+    .supporter-logo { display: flex; width: 100%; height: 90px; align-items: center; justify-content: center; }
+    .supporter-logo img { width: 100%; height: 100%; object-fit: contain; filter: grayscale(100%); }
+
+    .opportunity { padding: clamp(70px, 9vw, 108px) 0; }
+
+    .opportunity-card {
+      position: relative;
+      display: grid;
+      overflow: hidden;
+      padding: clamp(36px, 7vw, 78px);
+      border-radius: var(--radius-lg);
+      color: var(--white);
+      background: var(--orange);
+      grid-template-columns: 1.2fr .8fr;
+      gap: 54px;
+    }
+
+    .opportunity-card::after {
+      position: absolute;
+      right: -120px;
+      bottom: -210px;
+      width: 470px;
+      height: 470px;
+      border: 80px solid rgba(255, 255, 255, .12);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .opportunity-card h2 { max-width: 760px; margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.2rem, 4.7vw, 4.45rem); font-weight: 500; letter-spacing: -.04em; line-height: 1; }
+    .opportunity-card p { max-width: 570px; margin: 20px 0 0; color: #fff8f3; font-size: 1.03rem; }
+    .opportunity-action { position: relative; z-index: 1; display: flex; align-items: end; justify-content: flex-end; }
+    .opportunity .btn { color: var(--green-950); background: var(--white); }
+    .opportunity .btn:hover { background: var(--cream); }
+
+    .site-footer { color: #d3e3dd; background: var(--green-950); }
+
+    .footer-main {
+      display: grid;
+      padding: 72px 0 52px;
+      grid-template-columns: 1.05fr .55fr .7fr;
+      gap: 70px;
+    }
+
+    .footer-brand { max-width: 390px; }
+    .footer-brand strong { display: block; color: var(--white); font-family: Georgia, "Times New Roman", serif; font-size: 1.65rem; font-weight: 500; line-height: 1.15; }
+    .footer-brand p { margin: 16px 0 0; color: #acc7bd; font-size: .92rem; }
+    .footer-group h2 { margin: 0 0 16px; color: #8db7a8; font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; }
+    .footer-group ul { margin: 0; padding: 0; list-style: none; }
+    .footer-group li + li { margin-top: 10px; }
+    .footer-group a { color: var(--white); font-size: .9rem; text-decoration: none; }
+    .footer-group a:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+    address { color: #d3e3dd; font-size: .9rem; font-style: normal; }
+    address a { display: inline-block; margin-top: 10px; }
+
+    .footer-bottom {
+      display: flex;
+      min-height: 78px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      border-top: 1px solid rgba(255, 255, 255, .1);
+      color: #8fb1a5;
+      font-size: .77rem;
+    }
+
+    .footer-bottom a { color: #d3e3dd; text-underline-offset: 3px; }
+
+    .image-link { display: block; position: relative; border-radius: var(--radius-md); cursor: zoom-in; }
+    .image-link::after { content: 'View full image ↗'; position: absolute; top: 12px; right: 12px; padding: 6px 12px; border-radius: 999px; color: white; background: rgba(6, 57, 44, .9); font-size: .75rem; font-weight: 700; }
+    .hero-image-link::after { content: none; }
+    .image-viewer { width: min(1200px, calc(100% - 24px)); max-height: calc(100dvh - 24px); padding: 16px; border: 0; border-radius: 18px; color: white; background: var(--green-950); }
+    .image-viewer::backdrop { background: rgba(0, 0, 0, .82); }
+    .image-viewer img { width: 100%; height: auto; max-height: calc(100dvh - 180px); object-fit: contain; }
+    .image-viewer p { margin: 12px 0 0; }
+    .image-viewer button { display: block; margin: 0 0 12px auto; padding: 10px 16px; border: 1px solid white; border-radius: 999px; color: white; background: transparent; font: inherit; cursor: pointer; }
+    body.image-open { overflow: hidden; }
+    [data-count] { font-variant-numeric: tabular-nums; }
+
+    @media (max-width: 1040px) {
+      .site-nav { gap: 18px; }
+      .hero-grid { grid-template-columns: 1fr .9fr; gap: 44px; }
+      .pillar-grid { grid-template-columns: repeat(2, 1fr); }
+      .pillar-card { min-height: 240px; }
+      .leadership-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 1040px) {
+      :root { --page: min(100% - 30px, 680px); }
+      .menu-toggle { display: inline-flex; }
+      .header-inner { min-height: 70px; }
+      .brand img { width: 150px; height: 42px; }
+      .nav-wrap > .btn { display: none; }
+
+      .site-nav {
+        position: fixed;
+        inset: 70px 0 auto;
+        display: grid;
+        max-height: 0;
+        overflow: hidden;
+        padding: 0 22px;
+        border-bottom: 1px solid var(--line);
+        background: var(--cream);
+        box-shadow: var(--shadow-lg);
+        opacity: 0;
+        pointer-events: none;
+        transition: max-height .28s ease, opacity .2s ease, padding .28s ease;
+      }
+
+      .site-nav.open { max-height: 520px; padding-block: 24px 30px; opacity: 1; pointer-events: auto; }
+      .site-nav a:not(.btn), .site-nav .mobile-cta { display: flex; }
+      .site-nav a:not(.btn) { padding: 8px 0; font-size: 1rem; }
+      .site-nav .btn { margin-top: 8px; }
+
+      .hero { padding-top: 54px; }
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-copy { padding-bottom: 0; }
+      .hero-visual { margin-bottom: 20px; }
+      .metric-strip { grid-template-columns: 1fr 1fr; }
+      .metric:nth-child(3) { border-left: 0; }
+      .metric:nth-child(n+3) { border-top: 1px solid var(--line); }
+
+      .about-grid, .challenge-grid, .objective-layout, .network-grid, .leaders-top, .supporters-grid, .opportunity-card, .footer-main { grid-template-columns: 1fr; }
+      .about-grid, .challenge-grid, .network-grid { gap: 48px; }
+      .challenge-grid { align-items: start; }
+      .strategy-header { display: block; }
+      .strategy-header .section-intro { margin-top: 20px; }
+      .objective-heading { position: static; }
+      .objective-layout { gap: 40px; }
+      .network-grid { align-items: start; }
+      .leaders-top { gap: 20px; }
+      .leaders-top .section-intro { margin-top: 4px; }
+      .supporters-grid { gap: 30px; }
+      .opportunity-card { gap: 34px; }
+      .opportunity-action { justify-content: flex-start; }
+      .footer-main { gap: 40px; }
+    }
+
+    @media (max-width: 560px) {
+      :root { --page: calc(100% - 24px); }
+      .display { font-size: clamp(2.7rem, 14vw, 4.1rem); }
+      .section { padding: 76px 0; }
+      .hero-actions { display: grid; grid-template-columns: 1fr; }
+      .hero-actions .btn { width: 100%; }
+      .metric { padding: 22px 16px; }
+      .fact-row { grid-template-columns: 1fr; gap: 5px; }
+      .burden-grid, .pillar-grid, .leadership-grid, .supporter-list { grid-template-columns: 1fr; }
+      .burden-card:first-child { transform: none; }
+      .response-band { grid-template-columns: 1fr 1fr; }
+      .pillar-card { min-height: 220px; }
+      .objective-item { grid-template-columns: 52px 1fr; gap: 14px; }
+      .objective-item::before { width: 44px; height: 44px; }
+      .network-image-wrap { padding: 10px; }
+      .network-image-wrap figcaption { position: static; max-width: none; margin-top: 10px; border-radius: 12px 12px 24px 12px; }
+      .opportunity-card { padding: 34px 24px; }
+      .footer-bottom { align-items: flex-start; flex-direction: column; justify-content: center; padding: 22px 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header" aria-label="Site header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="African Leishmaniases Consortium home">
+        <img src="https://pasteur.tn/images/photo/logo%20ALC2.png" alt="African Leishmaniases Consortium">
+      </a>
+
+      <div class="nav-wrap">
+        <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+          <a href="#about">About</a>
+          <a href="#challenge">Why ALC</a>
+          <a href="#objectives">Objectives</a>
+          <a href="#leaders">Leadership</a>
+          <a href="https://ask4bg.org" target="_blank" rel="noopener">ASK4BG.org</a>
+          <a class="btn btn-primary mobile-cta" href="https://pasteur.tn/actualites/521-african-leishmaniases-consortium-call-for-fellowships" target="_blank" rel="noopener">Fellowship opportunities</a>
+        </nav>
+        <button class="menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Open navigation">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <h1 class="display">A new paradigm for eliminating <span>leishmaniases</span> in Africa.</h1>
+          <p class="hero-lead">The African Leishmaniases Consortium unites researchers, institutions and public-health leaders to turn locally led science into better tools, stronger systems and effective policy.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#objectives">Explore our work
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 14 0M13 6l6 6-6 6"></path></svg>
+            </a>
+            <a class="btn btn-secondary" href="#about">Discover ALC</a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <a class="image-link hero-image-link" href="https://pasteur.tn/images/photo/photo%20de%20groupe%20KOM%20ALC.jpg" aria-label="View full photo of the ALC launch meeting">
+          <img class="hero-image" src="https://pasteur.tn/images/photo/photo%20de%20groupe%20KOM%20ALC.jpg" alt="Participants at the ALC launch meeting and inception workshops" width="960" height="720" fetchpriority="high">
+          </a>
+        </div>
+      </div>
+
+      <div class="container metric-strip" aria-label="ALC at a glance">
+        <div class="metric"><strong>7</strong><span>research priority project networks</span></div>
+        <div class="metric"><strong>28</strong><span>fellows to be competitively supported</span></div>
+        <div class="metric"><strong>8</strong><span>partner institutions across Africa and Spain</span></div>
+        <div class="metric"><strong>3</strong><span>African regions connected: North, West and East</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container about-grid">
+        <div class="about-copy">
+          <p class="eyebrow">About ALC</p>
+          <h2 class="section-title">Locally led research with a continental horizon.</h2>
+          <p>ALC was created through a joint programme of Wellcome and the UK Foreign, Commonwealth &amp; Development Office, managed by the Science for Africa Foundation. It supports collaborative research led by Africa-based scientists and strengthens the next generation of research and public-health leaders.</p>
+          <p>Under the direction of Prof. Ikram Guizani, the consortium builds scientific and public-health excellence for the control and elimination of leishmaniases. Its pan-African scope connects Francophone and Anglophone partners in North, West and East Africa.</p>
+        </div>
+
+        <aside class="about-card" aria-label="ALC programme facts">
+          <h3>Programme at a glance</h3>
+          <dl class="fact-list">
+            <div class="fact-row"><dt>Host</dt><dd>Institut Pasteur de Tunis, Tunisia</dd></div>
+            <div class="fact-row"><dt>Secretariat</dt><dd>Co-hosted in Tunis and at the University of Ibadan Research Foundation</dd></div>
+            <div class="fact-row"><dt>Directors</dt><dd>Prof. Ikram Guizani, Director; Prof. Ayoade M.J. Oduola, Co-Director</dd></div>
+            <div class="fact-row"><dt>Scope</dt><dd>Research, training, leadership, policy and public engagement</dd></div>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section challenge" id="challenge">
+      <div class="container">
+        <div class="challenge-grid">
+          <div>
+            <p class="eyebrow light">The case for action</p>
+            <h2 class="section-title">A preventable burden demands a connected response.</h2>
+            <p class="section-intro">Leishmaniases persist where poverty, limited infrastructure and gaps in access to diagnosis and treatment overlap. Progress depends on linking discovery with delivery.</p>
+          </div>
+
+          <div class="burden-grid">
+            <article class="burden-card">
+              <strong>30k+</strong>
+              <p>people are affected by leishmaniases each year, with major burdens across North, East and West Africa.</p>
+            </article>
+            <article class="burden-card">
+              <strong>100k+</strong>
+              <p>African lives have been lost during visceral leishmaniasis outbreaks over past decades.</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="response-band" aria-label="Elements of an effective response">
+          <div class="response-item"><b>Find and treat</b>Accurate diagnosis, patient care and follow-up.</div>
+          <div class="response-item"><b>Track and predict</b>Vector surveillance, mapping and risk intelligence.</div>
+          <div class="response-item"><b>Prevent</b>Vector control, sanitation, education and active detection.</div>
+          <div class="response-item"><b>Engage</b>Communities, health workers, institutions and governments.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="pillars-title">
+      <div class="container">
+        <div class="strategy-header">
+          <div>
+            <p class="eyebrow">Our foundation</p>
+            <h2 class="section-title" id="pillars-title">Four pillars for lasting research capacity.</h2>
+          </div>
+          <p class="section-intro">ALC combines excellent science with the people, systems and culture required to sustain its impact.</p>
+        </div>
+
+        <div class="pillar-grid">
+          <article class="pillar-card"><span class="pillar-no">PILLAR 01</span><h3>Scientific quality &amp; research leadership</h3></article>
+          <article class="pillar-card"><span class="pillar-no">PILLAR 02</span><h3>Research infrastructure</h3></article>
+          <article class="pillar-card"><span class="pillar-no">PILLAR 03</span><h3>Management &amp; research culture</h3></article>
+          <article class="pillar-card"><span class="pillar-no">PILLAR 04</span><h3>Scientific citizenship</h3></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section objectives" id="objectives">
+      <div class="container objective-layout">
+        <div class="objective-heading">
+          <p class="eyebrow">Scientific objectives</p>
+          <h2 class="section-title">From new technology to stronger policy.</h2>
+          <p class="section-intro">A connected research agenda turns evidence into tools that control disease and improve public-health decisions.</p>
+        </div>
+
+        <ol class="objective-list">
+          <li class="objective-item">
+            <div><h3>Advance science and technology</h3><p>Apply developments in genomics and artificial intelligence to create new tools and strategies for monitoring and controlling leishmaniases.</p></div>
+          </li>
+          <li class="objective-item">
+            <div><h3>Improve diagnosis and management</h3><p>Use new tools to strengthen disease diagnosis, patient management and vector-control programmes.</p></div>
+          </li>
+          <li class="objective-item">
+            <div><h3>Map disease and predict risk</h3><p>Build detailed maps of disease distribution and identify risk areas to guide planning and implementation.</p></div>
+          </li>
+          <li class="objective-item">
+            <div><h3>Translate research into policy</h3><p>Use strategic research and a dedicated Think Tank to inform effective policies and strategies for disease control and elimination.</p></div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="network-title">
+      <div class="container network-grid">
+        <figure class="network-image-wrap">
+          <a class="image-link" href="https://pasteur.tn/images/Carte%20ALC%20modifiee.jpg" aria-label="View full consortium partner map">
+          <img src="https://pasteur.tn/images/Carte%20ALC%20modifiee.jpg" alt="Map showing the African Leishmaniases Consortium partner network across Africa and Spain" width="1000" height="750" loading="lazy">
+          </a>
+          <figcaption>A shared network spanning Africa and Spain</figcaption>
+        </figure>
+
+        <div>
+          <p class="eyebrow">Research &amp; talent</p>
+          <h2 class="section-title" id="network-title">A pipeline for people, evidence and impact.</h2>
+          <p class="section-intro">Research projects are organised through seven priority networks while fellowships, workshops and policy translation build the next generation of leadership.</p>
+
+          <div class="programme-list">
+            <article class="programme-item"><strong>07</strong><div><h3>Research Priority Project Networks</h3><p>Dedicated research areas that connect scientific delivery with advanced training.</p></div></article>
+            <article class="programme-item"><strong>28</strong><div><h3>Competitive fellowships</h3><p>Support for PhD students, postdoctoral fellows and mid-career researchers across successive calls.</p></div></article>
+            <article class="programme-item"><strong>∞</strong><div><h3>Knowledge into action</h3><p>Signature workshops and a Think Tank designed to translate research into practical policy options.</p></div></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section leaders" id="leaders">
+      <div class="container">
+        <div class="leaders-top">
+          <div>
+            <p class="eyebrow">Consortium leadership</p>
+            <h2 class="section-title">Complementary expertise, shared direction.</h2>
+          </div>
+          <p class="section-intro">ALC brings together leaders from partner institutions across Tunisia, Nigeria, Morocco, Spain, Mali, Sudan, Ethiopia and Algeria.</p>
+        </div>
+
+        <div class="leadership-grid">
+          <article class="person-card featured"><span class="person-role">Director</span><h3>Prof. Ikram Guizani</h3><p>Institut Pasteur de Tunis · Tunisia</p></article>
+          <article class="person-card featured"><span class="person-role">Co-Director</span><h3>Prof. Ayoade M.J. Oduola</h3><p>University of Ibadan Research Foundation · Nigeria</p></article>
+          <article class="person-card"><span class="person-role">Consortium leader</span><h3>Dr Meryem Lemrani</h3><p>Institut Pasteur du Maroc · Morocco</p></article>
+          <article class="person-card"><span class="person-role">Consortium leader</span><h3>Dr Elisa Sicuri</h3><p>Barcelona Institute for Global Health · Spain</p></article>
+          <article class="person-card"><span class="person-role">Consortium leader</span><h3>Prof. Nuria Casamitjana</h3><p>Barcelona Institute for Global Health · Spain</p></article>
+          <article class="person-card"><span class="person-role">Consortium leader</span><h3>Prof. Seydou Doumbia</h3><p>University Clinical Research Center – USTTB · Mali</p></article>
+          <article class="person-card"><span class="person-role">Consortium leader</span><h3>Prof. Maowia Mukhtar</h3><p>Bioscience Research Institute · Sudan</p></article>
+          <article class="person-card"><span class="person-role">Consortium leader</span><h3>Dr Endalamaw Gadisa</h3><p>Armauer Hansen Research Institute · Ethiopia</p></article>
+          <article class="person-card"><span class="person-role">Consortium leader</span><h3>Dr Kamal Eddine Benallal</h3><p>Institut Pasteur d’Algérie · Algeria</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="supporters" aria-labelledby="supporters-title">
+      <div class="container supporters-grid">
+        <h2 id="supporters-title">Supported by a global partnership for African science.</h2>
+        <div class="supporter-list">
+          <a class="supporter" href="https://scienceforafrica.foundation/" target="_blank" rel="noopener noreferrer">
+            <span class="supporter-logo"><img src="assets/funders/science-for-africa.png" alt="" loading="lazy"></span>
+            <span>Science for Africa Foundation</span>
+          </a>
+          <a class="supporter" href="https://wellcome.org/" target="_blank" rel="noopener noreferrer">
+            <span class="supporter-logo"><img src="assets/funders/wellcome.svg" alt="" loading="lazy"></span>
+            <span>Funded by Wellcome</span>
+          </a>
+          <a class="supporter" href="https://www.gov.uk/government/organisations/foreign-commonwealth-development-office" target="_blank" rel="noopener noreferrer">
+            <span class="supporter-logo"><img src="assets/funders/uk-international-development.png" alt="UK International Development" loading="lazy"></span>
+            <span>UK Foreign, Commonwealth &amp; Development Office</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="opportunity" aria-labelledby="opportunity-title">
+      <div class="container opportunity-card">
+        <div>
+          <h2 id="opportunity-title">Build the next chapter of leishmaniases research.</h2>
+          <p>Fellowship opportunities are designed for PhD students, postdoctoral fellows and early- and mid-career researchers committed to advancing control and elimination.</p>
+        </div>
+        <div class="opportunity-action">
+          <a class="btn" href="https://pasteur.tn/actualites/521-african-leishmaniases-consortium-call-for-fellowships" target="_blank" rel="noopener">View fellowship calls
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 14 0M13 6l6 6-6 6"></path></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="footer-brand">
+        <strong>African Leishmaniases Consortium</strong>
+        <p>Building leadership and excellence in science and public health for the control and elimination of leishmaniases in Africa.</p>
+      </div>
+
+      <div class="footer-group">
+        <h2>Explore</h2>
+        <ul>
+          <li><a href="#about">About ALC</a></li>
+          <li><a href="#objectives">Scientific objectives</a></li>
+          <li><a href="#leaders">Leadership</a></li>
+          <li><a href="https://pasteur.tn/actualites/521-african-leishmaniases-consortium-call-for-fellowships" target="_blank" rel="noopener">Fellowships</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-group">
+        <h2>Contact the host institution</h2>
+        <address>
+          Institut Pasteur de Tunis<br>
+          13, place Pasteur, B.P. 74<br>
+          1002 Tunis Belvédère, Tunisia<br>
+          <a href="mailto:info@pasteur.tn">info@pasteur.tn</a><br>
+          <a href="tel:+21671783022">+216 71 783 022</a>
+        </address>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <span>© <span id="year">2026</span> African Leishmaniases Consortium.</span>
+    </div>
+  </footer>
+
+  <dialog class="image-viewer" aria-label="Full image" aria-describedby="viewer-caption">
+    <button type="button" autofocus>Close image ×</button>
+    <img alt="">
+    <p id="viewer-caption"></p>
+  </dialog>
+
+  <script>
+    (() => {
+      const toggle = document.querySelector('.menu-toggle');
+      const nav = document.querySelector('#site-nav');
+      const body = document.body;
+
+      const closeMenu = () => {
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Open navigation');
+        body.classList.remove('menu-open');
+      };
+
+      toggle.addEventListener('click', () => {
+        const isOpen = nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+        toggle.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
+        body.classList.toggle('menu-open', isOpen);
+      });
+
+      nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') closeMenu();
+      });
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 1040) closeMenu();
+      });
+
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      const counters = document.querySelectorAll('.metric strong, .burden-card strong, .programme-item strong');
+      const animateCount = (element) => {
+        const finalText = element.dataset.count;
+        const digits = finalText.match(/^\d+/)[0];
+        const target = Number(digits);
+        const suffix = finalText.slice(digits.length);
+        const start = performance.now();
+        const tick = (now) => {
+          const progress = reducedMotion.matches ? 1 : Math.min((now - start) / 1500, 1);
+          const value = Math.round(target * (1 - Math.pow(1 - progress, 3)));
+          element.textContent = (digits.startsWith('0') ? String(value).padStart(digits.length, '0') : String(value)) + suffix;
+          if (progress < 1) requestAnimationFrame(tick);
+          else element.textContent = finalText;
+        };
+        requestAnimationFrame(tick);
+      };
+      if (!reducedMotion.matches && 'IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            observer.unobserve(entry.target);
+            animateCount(entry.target);
+          });
+        }, { threshold: 0.5 });
+        counters.forEach((element) => {
+          const value = element.textContent.trim();
+          if (!/^\d+/.test(value)) return;
+          element.dataset.count = value;
+          element.setAttribute('aria-label', value);
+          observer.observe(element);
+        });
+      }
+
+      const viewer = document.querySelector('.image-viewer');
+      const viewerImage = viewer.querySelector('img');
+      let imageTrigger;
+      document.querySelectorAll('.image-link').forEach((link) => {
+        link.addEventListener('click', (event) => {
+          if (typeof viewer.showModal !== 'function' || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+          event.preventDefault();
+          imageTrigger = link;
+          viewerImage.src = link.href;
+          viewerImage.alt = link.querySelector('img').alt;
+          document.querySelector('#viewer-caption').textContent = viewerImage.alt;
+          viewer.showModal();
+          body.classList.add('image-open');
+        });
+      });
+      viewer.querySelector('button').addEventListener('click', () => viewer.close());
+      viewer.addEventListener('click', (event) => {
+        const bounds = viewer.getBoundingClientRect();
+        if (event.target === viewer && (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom)) viewer.close();
+      });
+      viewer.addEventListener('close', () => {
+        body.classList.remove('image-open');
+        imageTrigger?.focus();
+      });
+
+      document.querySelector('#year').textContent = new Date().getFullYear();
+    })();
+  </script>
+</body>
+</html>
